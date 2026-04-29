@@ -3,12 +3,12 @@
 Usage:
     python query_processing_log.py <input_key_or_prefix>
  
-Environment variables (uses a hard coded default if not set):
+Environment variables (required):
     DB_HOST      - MySQL host/endpoint (e.g. your-rds-instance.rds.amazonaws.com)
     DB_PORT      - MySQL port (default: 3306)
-    DB_USER      - MySQL username  (e.g. cloud_crew)
-    DB_PASSWORD  - MySQL password  (e.g. cloud_crew)
-    DB_NAME      - MySQL database  (e.g. group_3)
+    DB_USER      - MySQL username  
+    DB_PASSWORD  - MySQL password  
+    DB_NAME      - MySQL database  
 """
  
 import os
@@ -18,11 +18,11 @@ from pymysql import Error
  
 def get_connection():
     #creates a MySQL connection using environment variables
-    host     = os.environ.get("DB_HOST", "ds2002.cgls84scuy1e.us-east-1.rds.amazonaws.com")
+    host     = os.environ.get("DB_HOST")
     port     = int(os.environ.get("DB_PORT", 3306))
-    user     = os.environ.get("DB_USER", "cloud_crew")
-    password = os.environ.get("DB_PASSWORD", "cloud_crew")
-    database = os.environ.get("DB_NAME", "group_3")
+    user     = os.environ.get("DB_USER")
+    password = os.environ.get("DB_PASSWORD")
+    database = os.environ.get("DB_NAME")
  
     try:
         conn = pymysql.connect(
