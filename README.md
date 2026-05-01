@@ -59,6 +59,35 @@ The Lambda execution role is configured with permissions to:
 * Read '.txt' files from the 'input/' folder
 * Write '.pdf' files to the 'output/' folder
 
+## MySQL Logging
+The pipeline records every processed file into an Amazon RDS MySQL database. This allows tracking of successful and failed conversions.
+
+Each time the Lambda function processes a file, it inserts a record into the `processing_log` table.
+
+### Stored Information
+
+Each record includes:
+
+- **input_key** — S3 path of the uploaded file  
+- **input_bucket** — S3 bucket name  
+- **output_key** — S3 path of the generated PDF  
+- **output_bucket** — S3 bucket name  
+- **filename** — original file name  
+- **timestamp** — time of processing 
+- **status** — `Success` or `Failed`  
+- **error_message** — error details 
+
+---
+
+## Viewing the Database
+
+Since this project uses Amazon RDS (MySQL), the database is accessed externally rather than through the AWS UI.
+
+### Using Python Script
+Run the provided script:
+
+```bash
+python connect_test.py
 
 
 ## Lambda File Conversion
