@@ -15,6 +15,27 @@ The S3 bucket is structured with two folders to seperate input and output data:
 * input/ — stores uploaded .txt files that will be processed
 * output/ — stores the generated .pdf files after conversion
 
+This structure ensures a clear separation between raw input data and processed output, making the pipeline easier to manage and debug. 
+An S3 event notification is configured so that when a .txt file is uploaded to the input/ folder, the Lambda function is automatically triggered. 
+
+Trigger configuration:
+```bash
+Prefix: input/
+Suffix: .txt
+Event type: ObjectCreated
+```
+This ensures that only valid input files (such as input/example.txt) trigger the pipeline, while other files (e.g, non-.txt files or files outside the input folder) are ignored. 
+
+## Uploading Files to S3
+Files can be uploaded manually through the AWS Console or using the AWS CLI. 
+Example AWS CLI upload: 
+```bash
+aws s3 cp your_file.txt s3://cloud-crew-file-converter-team3/input/your_file.txt
+Once uploaded, the Lambda function will automatically process the file and generate a corresponding PDF in the output folder.
+To check the output folder:
+```bash
+aws s3 ls s3://cloud-crew-file-converter-team3/output/
+```
 
 
 
