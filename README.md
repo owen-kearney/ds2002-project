@@ -31,8 +31,11 @@ Files can be uploaded manually through the AWS Console or using the AWS CLI.
 Example AWS CLI upload: 
 ```bash
 aws s3 cp your_file.txt s3://cloud-crew-file-converter-team3/input/your_file.txt
+```
+
 Once uploaded, the Lambda function will automatically process the file and generate a corresponding PDF in the output folder.
 To check the output folder:
+
 ```bash
 aws s3 ls s3://cloud-crew-file-converter-team3/output/
 ```
