@@ -40,8 +40,24 @@ To check the output folder:
 aws s3 ls s3://cloud-crew-file-converter-team3/output/
 ```
 
+## Uploading Files with Boto3
+Files can also be upload programmatically using Boto3. Uploading a '.txt' file to the 'input/' folder triggers the Lambda function automatically. 
 
+Example: 
+```python
+import boto3
+import os
 
+BUCKET_NAME = "cloud-crew-file-converter-team3"
+
+s3 = boto3.client("s3")
+s3.upload_file("test.txt", BUCKET_NAME, "input/test.txt")
+```
+
+## S3 Permissions and Access
+The Lambda execution role is configured with permissions to:
+* Read '.txt' files from the 'input/' folder
+* Write '.pdf' files to the 'output/' folder
 
 
 
