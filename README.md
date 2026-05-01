@@ -8,9 +8,9 @@ This project uses an Amazon S3 bucket to store both input text files and convert
 
 Bucket name:
 
-'''bash
+```bash
 cloud-crew-file-converter-team3 
-'''
+```
 
 
 
