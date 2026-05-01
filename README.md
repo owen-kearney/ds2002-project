@@ -6,7 +6,10 @@ Project 1: File Converter
 ## S3 Bucket Setup and Upload Trigger
 This project uses an Amazon S3 bucket to store both input text files and converted PDF outputs. 
 
+Bucket name:
 
+'''bash
+cloud-crew-file-converter-team3
 
 
 
