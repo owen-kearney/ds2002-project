@@ -11,6 +11,9 @@ Bucket name:
 ```bash
 cloud-crew-file-converter-team3 
 ```
+The S3 bucket is structured with two folders to seperate input and output data:
+* input/ — stores uploaded .txt files that will be processed
+* output/ — stores the generated .pdf files after conversion
 
 
 
