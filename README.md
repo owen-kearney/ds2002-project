@@ -88,7 +88,7 @@ Run the provided script:
 
 ```bash
 python connect_test.py
-
+```
 
 ## Lambda File Conversion
 
