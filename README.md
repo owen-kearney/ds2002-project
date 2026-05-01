@@ -3,6 +3,17 @@ Project 1: File Converter
 
 # How to Use
 
+## S3 Bucket Setup and Upload Trigger
+This project uses an Amazon S3 bucket to store both input text files and converted PDF outputs. 
+
+
+
+
+
+
+
+
+
 ## Lambda File Conversion
 
 Uses `lambda_function.py` to convert `.txt` files to `.pdf` files.
